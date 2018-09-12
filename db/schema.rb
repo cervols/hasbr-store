@@ -10,16 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180903053743) do
+ActiveRecord::Schema.define(version: 20180912055647) do
 
   create_table "items", force: :cascade do |t|
     t.float "price"
     t.string "name"
     t.boolean "real"
     t.float "weight"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "description"
+    t.integer "votes_count", default: 0
+    t.index ["name"], name: "index_items_on_name"
+    t.index ["price"], name: "index_items_on_price"
   end
 
 end
