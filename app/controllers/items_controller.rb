@@ -4,7 +4,8 @@ class ItemsController < ApplicationController
   before_action :check_if_admin, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    @items = Item.all
+    #@items = Item.all
+    @items = Item.where("price >= ?", params[:price_from])
   end
 
   def expensive
